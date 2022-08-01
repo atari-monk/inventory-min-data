@@ -7,31 +7,54 @@ public abstract class InventoryDbContextSeeder
 {
     protected override void SeedData(ModelBuilder builder)
     {
+        SeedCategory(builder);
+        SeedCurrency(builder);
+        SeedState(builder);
+        SeedTag(builder);
+        SeedUnit(builder);
+    }
+
+    private void SeedCategory(ModelBuilder builder)
+    {
         builder.Entity<Category>()
             .HasData(
                 GetEntity(
                     1
-                    , "Food")
-                    );
+                    , "Food"));
+    }
+
+    private void SeedCurrency(ModelBuilder builder)
+    {
         builder.Entity<Currency>()
             .HasData(
                 GetEntity(
                     1
-                    , "PLN")
-                    );
+                    , "PLN"));
+    }
+
+    private void SeedState(ModelBuilder builder)
+    {
         builder.Entity<State>()
             .HasData(
                 GetEntity(
                     1
-                    , "Very good"
-                    , "Sold")
-                    );
+                    , "Fresh"));
+    }
+
+    private void SeedTag(ModelBuilder builder)
+    {
         builder.Entity<Tag>()
             .HasData(
                 GetEntity(
                     1
                     , "Preserves")
-                    );
+                , GetEntity(
+                    2
+                    , "Shopping 08.2022"));
+    }
+
+    private void SeedUnit(ModelBuilder builder)
+    {
         builder.Entity<Unit>()
             .HasData(
                 GetEntity(
@@ -41,8 +64,7 @@ public abstract class InventoryDbContextSeeder
                 , GetEntity(
                     2
                     , "l"
-                    , "Litre")
-                    );   
+                    , "Litre"));
     }
 
     private object GetEntity(
