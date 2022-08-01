@@ -17,6 +17,8 @@ public class Item
     [MaxLength(DescriptionMax)]
 	public string? Description { get; set; }
 
+    public int? Quantity { get; set; }
+
     [ForeignKey(nameof(CategoryId))]
 	public int? CategoryId { get; set; }
 
