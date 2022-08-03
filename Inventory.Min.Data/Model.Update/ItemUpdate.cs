@@ -12,7 +12,8 @@ public class ItemUpdate
     public int? VolumeUnitId { get; set; }
     public int? TagId { get; set; }
     public int? StateId { get; set; }
-
+    public int? ParentId { get; set; }
+    
     public void Update(Item model)
     {
         base.Update(model);
@@ -40,5 +41,9 @@ public class ItemUpdate
         if (StateId.HasValue
             && StateId.Value != model.StateId)
             model.StateId = StateId.Value;
+
+        if (ParentId.HasValue
+            && ParentId.Value != model.ParentId)
+            model.ParentId = ParentId.Value;
     }
 }

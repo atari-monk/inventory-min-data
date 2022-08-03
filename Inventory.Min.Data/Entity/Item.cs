@@ -59,6 +59,13 @@ public class Item
     [ForeignKey(nameof(StateId))]
 	public int? StateId { get; set; }
 
+    [ForeignKey(nameof(Item))]
+	public int? ParentId { get; set; }
+
+    public Item? Parent { get; set; }
+
+    public IEnumerable<Item>? Children { get; set; }
+
     public Category? Category { get; set; }
 
     public Currency? Currency { get; set; }
