@@ -23,7 +23,12 @@ public abstract class InventoryDbContextSeeder
                     , "Food")
                 , GetEntity(
                     2
-                    , "Furniture"));
+                    , "Furniture")
+                , GetCategory(
+                    3
+                    , "Pasta"
+                    , default
+                    , 1));
     }
 
     private void SeedCurrency(ModelBuilder builder)
@@ -88,6 +93,23 @@ public abstract class InventoryDbContextSeeder
             Id = id
             , Name = name
             , Description = description
+            , CreatedDate = DateTime.Now
+            , UpdatedDate = DateTime.Now
+        };
+    }
+
+    private object GetCategory(
+        int id
+        , string name
+        , string? description = default
+        , int? parentId = default)
+    {
+        return new 
+        { 
+            Id = id
+            , Name = name
+            , Description = description
+            , ParentId = parentId
             , CreatedDate = DateTime.Now
             , UpdatedDate = DateTime.Now
         };
