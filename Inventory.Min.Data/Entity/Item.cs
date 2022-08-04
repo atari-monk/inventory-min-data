@@ -53,6 +53,11 @@ public class Item
 
     public double? Volume { get; set; }
 
+    public double? Mass { get; set; }
+
+    [ForeignKey(nameof(Unit))]
+	public int? MassUnitId { get; set; }
+
     [ForeignKey(nameof(TagId))]
 	public int? TagId { get; set; }
 

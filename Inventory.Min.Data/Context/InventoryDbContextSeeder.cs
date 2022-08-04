@@ -20,7 +20,10 @@ public abstract class InventoryDbContextSeeder
             .HasData(
                 GetEntity(
                     1
-                    , "Food"));
+                    , "Food")
+                , GetEntity(
+                    2
+                    , "Furniture"));
     }
 
     private void SeedCurrency(ModelBuilder builder)
@@ -38,7 +41,7 @@ public abstract class InventoryDbContextSeeder
             .HasData(
                 GetEntity(
                     1
-                    , "Fresh"));
+                    , "Resource depleted"));
     }
 
     private void SeedTag(ModelBuilder builder)
@@ -64,7 +67,15 @@ public abstract class InventoryDbContextSeeder
                 , GetEntity(
                     2
                     , "l"
-                    , "Litre"));
+                    , "Litre")
+                , GetEntity(
+                    3
+                    , "g"
+                    , "Gram")
+                 , GetEntity(
+                    4
+                    , "kg"
+                    , "Kilogram"));
     }
 
     private object GetEntity(
