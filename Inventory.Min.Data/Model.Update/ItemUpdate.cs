@@ -13,6 +13,8 @@ public class ItemUpdate
     public int? TagId { get; set; }
     public int? StateId { get; set; }
     public int? ParentId { get; set; }
+    public double? Mass { get; set; }
+    public int? MassUnitId { get; set; }
     
     public void Update(Item model)
     {
@@ -45,5 +47,13 @@ public class ItemUpdate
         if (ParentId.HasValue
             && ParentId.Value != model.ParentId)
             model.ParentId = ParentId.Value;
+        
+         if (Mass.HasValue
+            && Mass.Value != model.Mass)
+            model.Mass = Mass.Value;
+
+         if (MassUnitId.HasValue
+            && MassUnitId.Value != model.MassUnitId)
+            model.MassUnitId = MassUnitId.Value;
     }
 }
