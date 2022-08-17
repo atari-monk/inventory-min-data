@@ -11,7 +11,7 @@ public class InventoryDbContextApi
         
     }
 
-    public InventoryDbContextApi(DbContextOptions<InventoryDbContext> options)
+    public InventoryDbContextApi(DbContextOptions<InventoryDbContextApi> options)
         : base(options)
     {
     }
