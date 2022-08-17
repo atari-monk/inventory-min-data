@@ -5,6 +5,16 @@ namespace Inventory.Min.Data;
 public abstract class InventoryDbContextSeeder
     : InventoryDbContextBase
 {
+    public InventoryDbContextSeeder(DbContextOptions<InventoryDbContextSeeder> options)
+        : base(options)
+    {
+    }
+
+    protected InventoryDbContextSeeder(DbContextOptions options)
+        : base(options)
+    {
+    }
+
     protected override void SeedData(ModelBuilder builder)
     {
         SeedCategory(builder);

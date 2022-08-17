@@ -6,6 +6,16 @@ namespace Inventory.Min.Data;
 public abstract class InventoryDbContextBase
     : DbContextExtended
 {
+    public InventoryDbContextBase(DbContextOptions<InventoryDbContextBase> options)
+        : base(options)
+    {
+    }
+
+    protected InventoryDbContextBase(DbContextOptions options)
+        : base(options)
+    {
+    }
+
 	public DbSet<Category>? Category { get; set; }
 	public DbSet<Currency>? Currency { get; set; }
 	public DbSet<Item>? Item { get; set; }
