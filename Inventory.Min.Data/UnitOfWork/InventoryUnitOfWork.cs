@@ -1,17 +1,19 @@
 using EFCore.Helper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Inventory.Min.Data;
 
-public class InventoryUnitOfWork
+public class InventoryUnitOfWork<TContext>
     : UnitOfWork
         , IInventoryUnitOfWork
+    where TContext : DbContext
 {
     private readonly IItemRepo item;
 
     public IItemRepo Item => item;
 
     public InventoryUnitOfWork(
-        InventoryDbContext context
+        TContext context
         , IItemRepo item)
             : base(context)
     {

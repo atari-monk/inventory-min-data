@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Inventory.Min.Data;
+namespace Inventory.Min.Data.Context.Prod;
 
 public abstract class InventoryDbContextSeeder
     : InventoryDbContextBase

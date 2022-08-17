@@ -1,10 +1,10 @@
 using EFCore.Helper;
 using Microsoft.EntityFrameworkCore;
 
-namespace Inventory.Min.Data;
+namespace Inventory.Min.Data.Context.Local;
 
 public abstract class InventoryDbContextBase
-    : DbContextExtended
+    : LocalDbContext
 {
     public InventoryDbContextBase(DbContextOptions<InventoryDbContextBase> options)
         : base(options)

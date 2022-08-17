@@ -1,13 +1,15 @@
 using System.Linq.Expressions;
 using EFCore.Helper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Inventory.Min.Data;
 
-public class ItemRepo
-    : EFRepository<Item, InventoryDbContext>
+public class ItemRepo<TContext>
+    : EFRepository<Item, TContext>
     , IItemRepo
+    where TContext : DbContext
 {
-    public ItemRepo(InventoryDbContext context)
+    public ItemRepo(TContext context)
         : base(context)
     {
     }
