@@ -15,6 +15,8 @@ public class ItemUpdate
     public int? ParentId { get; set; }
     public double? Mass { get; set; }
     public int? MassUnitId { get; set; }
+	public int? Quantity { get; set; }
+	public DateTime? PurchaseDate { get; set; }
     
     public void Update(Item model)
     {
@@ -55,5 +57,14 @@ public class ItemUpdate
          if (MassUnitId.HasValue
             && MassUnitId.Value != model.MassUnitId)
             model.MassUnitId = MassUnitId.Value;
+		
+			if (Quantity.HasValue
+            && Quantity.Value != model.Quantity)
+            model.Quantity = Quantity.Value;
+			
+			if (PurchaseDate.HasValue
+            && PurchaseDate.Value != model.PurchaseDate)
+            model.PurchaseDate = PurchaseDate.Value;
+			
     }
 }

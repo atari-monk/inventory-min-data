@@ -53,7 +53,13 @@ public abstract class InventoryDbContextSeeder
             .HasData(
                 GetEntity(
                     1
-                    , "PLN"));
+                    , "PLN")
+                , GetEntity(
+                    2
+                    , "EUR")
+                , GetEntity(
+                    3
+                    , "USD"));
     }
 
     private void SeedState(ModelBuilder builder)
@@ -62,7 +68,13 @@ public abstract class InventoryDbContextSeeder
             .HasData(
                 GetEntity(
                     1
-                    , "Resource depleted"));
+                    , "In storage")
+                , GetEntity(
+                    2
+                    , "In use")
+                , GetEntity(
+                    3
+                    , "Depleted"));
     }
 
     private void SeedTag(ModelBuilder builder)
