@@ -21,6 +21,7 @@ public class ItemRepo<TContext>
             filter
             , orderBy: (items) => items
                 .OrderBy((item) => item.PurchaseDate)
-                .ThenBy((item) => item.PurchasePrice));
+                .ThenBy((item) => item.PurchasePrice)
+            , includeProperties: $"{nameof(Item.Category)}");
     }
 }
