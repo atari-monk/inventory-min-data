@@ -19,13 +19,13 @@ public class Item
 
     public int? Quantity { get; set; }
 
-    [ForeignKey(nameof(CategoryId))]
+    [ForeignKey(nameof(Category))]
 	public int? CategoryId { get; set; }
 
 	[Column(TypeName = Datetime2Name)]
 	public DateTime? PurchaseDate { get; set; }
 
-    [ForeignKey(nameof(CurrencyId))]
+    [ForeignKey(nameof(Currency))]
 	public int? CurrencyId { get; set; }
 
     [Column(TypeName = "decimal(5, 2)")]
@@ -58,10 +58,10 @@ public class Item
     [ForeignKey(nameof(Unit))]
 	public int? MassUnitId { get; set; }
 
-    [ForeignKey(nameof(TagId))]
+    [ForeignKey(nameof(Tag))]
 	public int? TagId { get; set; }
 
-    [ForeignKey(nameof(StateId))]
+    [ForeignKey(nameof(State))]
 	public int? StateId { get; set; }
 
     [ForeignKey(nameof(Item))]
