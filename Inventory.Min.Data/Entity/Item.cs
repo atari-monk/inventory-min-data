@@ -79,7 +79,7 @@ public class Item
 
     public Unit? VolumeUnit { get; set; }
 
-    public Unit? Tag { get; set; }
+    public Tag? Tag { get; set; }
 
-    public Unit? State { get; set; }
+    public State? State { get; set; }
 }
