@@ -17,7 +17,9 @@ public class Item
     [MaxLength(DescriptionMax)]
 	public string? Description { get; set; }
 
-    public int? Quantity { get; set; }
+    public int? InitialCount { get; set; }
+
+    public int? CurrentCount { get; set; }
 
     [ForeignKey(nameof(Category))]
 	public int? CategoryId { get; set; }

@@ -6,7 +6,8 @@ public class ItemUpdate
     : ModelAUpdate
     , IUpdatable<Item>
 {
-    public int? Quantity { get; set; }
+    public int? InitialCount { get; set; }
+    public int? CurrentCount { get; set; }
     public int? CategoryId { get; set; }
     public DateTime? PurchaseDate { get; set; }
     public int? CurrencyId { get; set; }
@@ -66,9 +67,13 @@ public class ItemUpdate
            && MassUnitId.Value != model.MassUnitId)
             model.MassUnitId = MassUnitId.Value;
 
-        if (Quantity.HasValue
-        && Quantity.Value != model.Quantity)
-            model.Quantity = Quantity.Value;
+        if (InitialCount.HasValue
+        && InitialCount.Value != model.InitialCount)
+            model.InitialCount = InitialCount.Value;
+        
+        if (CurrentCount.HasValue
+        && CurrentCount.Value != model.CurrentCount)
+            model.CurrentCount = CurrentCount.Value;
 
         if (PurchaseDate.HasValue
         && PurchaseDate.Value != model.PurchaseDate)
