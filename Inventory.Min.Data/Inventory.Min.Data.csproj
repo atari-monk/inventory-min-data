@@ -14,6 +14,21 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7"/>
 	</ItemGroup>
+    <!-- Debug refs -->
+	<!-- <ItemGroup>
+		<Reference Include="EFCore.Helper">
+			<HintPath>..\..\efcore-helper\EFCore.Helper\bin\Debug\net6.0\EFCore.Helper.dll</HintPath>
+		</Reference>
+		<Reference Include="DIHelper">
+			<HintPath>..\..\di-helper\DIHelper\bin\Debug\net6.0\DIHelper.dll</HintPath>
+		</Reference>
+		<Reference Include="ModelHelper">
+			<HintPath>..\..\model-helper\ModelHelper\bin\Debug\net6.0\ModelHelper.dll</HintPath>
+		</Reference>
+        <Reference Include="Config.Wrapper">
+			<HintPath>..\..\config-wrapper\Config.Wrapper\bin\Debug\net6.0\Config.Wrapper.dll</HintPath>
+		</Reference>
+	</ItemGroup> -->
 	<!--Release refs-->
 	<ItemGroup>
 		<Reference Include="EFCore.Helper">
