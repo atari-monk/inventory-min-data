@@ -34,17 +34,5 @@ public class InventoryDbContext
 
     protected override void SeedData(ModelBuilder builder)
     {
-        var seeders = new ISeeder[]
-        {
-            new CategorySeeder()
-            , new CurrencySeeder()
-            , new StateSeeder()
-            , new TagSeeder()
-            , new UnitSeeder()
-        };
-        foreach (var seeder in seeders)
-        {
-            seeder.Seed(builder);
-        }
     }    
 }

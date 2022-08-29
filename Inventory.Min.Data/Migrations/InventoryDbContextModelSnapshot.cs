@@ -53,30 +53,6 @@ namespace Inventory.Min.Data.Migrations
                     b.HasIndex("ParentId");
 
                     b.ToTable("Category");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4492),
-                            Name = "Food",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4526)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4529),
-                            Name = "Furniture",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4531)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4533),
-                            Name = "Pasta",
-                            ParentId = 1,
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4535)
-                        });
                 });
 
             modelBuilder.Entity("Inventory.Min.Data.Currency", b =>
@@ -105,29 +81,6 @@ namespace Inventory.Min.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Currency");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4565),
-                            Name = "PLN",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4567)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4569),
-                            Name = "EUR",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4571)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4573),
-                            Name = "USD",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4574)
-                        });
                 });
 
             modelBuilder.Entity("Inventory.Min.Data.Item", b =>
@@ -259,29 +212,6 @@ namespace Inventory.Min.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("State");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4587),
-                            Name = "In storage",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4589)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4591),
-                            Name = "In use",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4593)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4594),
-                            Name = "Depleted",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4596)
-                        });
                 });
 
             modelBuilder.Entity("Inventory.Min.Data.Tag", b =>
@@ -310,22 +240,6 @@ namespace Inventory.Min.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tag");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4610),
-                            Name = "Preserves",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4612)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4614),
-                            Name = "Shopping 08.2022",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4615)
-                        });
                 });
 
             modelBuilder.Entity("Inventory.Min.Data.Unit", b =>
@@ -354,40 +268,6 @@ namespace Inventory.Min.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Unit");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4634),
-                            Description = "Centimetre",
-                            Name = "cm",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4636)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4638),
-                            Description = "Litre",
-                            Name = "l",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4640)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4642),
-                            Description = "Gram",
-                            Name = "g",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4643)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4645),
-                            Description = "Kilogram",
-                            Name = "kg",
-                            UpdatedDate = new DateTime(2022, 8, 25, 14, 28, 4, 426, DateTimeKind.Local).AddTicks(4647)
-                        });
                 });
 
             modelBuilder.Entity("Inventory.Min.Data.Category", b =>

@@ -103,6 +103,8 @@ namespace Inventory.Min.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(280)", maxLength: 280, nullable: true),
+                    InitialCount = table.Column<int>(type: "int", nullable: true),
+                    CurrentCount = table.Column<int>(type: "int", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: true),
                     PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CurrencyId = table.Column<int>(type: "int", nullable: true),
@@ -116,8 +118,11 @@ namespace Inventory.Min.Data.Migrations
                     Diameter = table.Column<double>(type: "float", nullable: true),
                     VolumeUnitId = table.Column<int>(type: "int", nullable: true),
                     Volume = table.Column<double>(type: "float", nullable: true),
+                    Mass = table.Column<double>(type: "float", nullable: true),
+                    MassUnitId = table.Column<int>(type: "int", nullable: true),
                     TagId = table.Column<int>(type: "int", nullable: true),
                     StateId = table.Column<int>(type: "int", nullable: true),
+                    ParentId = table.Column<int>(type: "int", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -135,18 +140,23 @@ namespace Inventory.Min.Data.Migrations
                         principalTable: "Currency",
                         principalColumn: "Id");
                     table.ForeignKey(
+                        name: "FK_Item_Item_ParentId",
+                        column: x => x.ParentId,
+                        principalTable: "Item",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Item_State_StateId",
+                        column: x => x.StateId,
+                        principalTable: "State",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Item_Tag_TagId",
+                        column: x => x.TagId,
+                        principalTable: "Tag",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_Item_Unit_LengthUnitId",
                         column: x => x.LengthUnitId,
-                        principalTable: "Unit",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Item_Unit_StateId",
-                        column: x => x.StateId,
-                        principalTable: "Unit",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Item_Unit_TagId",
-                        column: x => x.TagId,
                         principalTable: "Unit",
                         principalColumn: "Id");
                     table.ForeignKey(
@@ -154,35 +164,6 @@ namespace Inventory.Min.Data.Migrations
                         column: x => x.VolumeUnitId,
                         principalTable: "Unit",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.InsertData(
-                table: "Category",
-                columns: new[] { "Id", "CreatedDate", "Description", "Name", "ParentId", "UpdatedDate" },
-                values: new object[] { 1, new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2459), null, "Food", null, new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2493) });
-
-            migrationBuilder.InsertData(
-                table: "Currency",
-                columns: new[] { "Id", "CreatedDate", "Description", "Name", "UpdatedDate" },
-                values: new object[] { 1, new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2520), null, "PLN", new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2522) });
-
-            migrationBuilder.InsertData(
-                table: "State",
-                columns: new[] { "Id", "CreatedDate", "Description", "Name", "UpdatedDate" },
-                values: new object[] { 1, new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2537), "Sold", "Very good", new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2539) });
-
-            migrationBuilder.InsertData(
-                table: "Tag",
-                columns: new[] { "Id", "CreatedDate", "Description", "Name", "UpdatedDate" },
-                values: new object[] { 1, new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2551), null, "Preserves", new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2552) });
-
-            migrationBuilder.InsertData(
-                table: "Unit",
-                columns: new[] { "Id", "CreatedDate", "Description", "Name", "UpdatedDate" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2565), "Centimetre", "cm", new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2566) },
-                    { 2, new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2568), "Litre", "l", new DateTime(2022, 7, 27, 21, 25, 7, 787, DateTimeKind.Local).AddTicks(2570) }
                 });
 
             migrationBuilder.CreateIndex(
@@ -206,6 +187,11 @@ namespace Inventory.Min.Data.Migrations
                 column: "LengthUnitId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Item_ParentId",
+                table: "Item",
+                column: "ParentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Item_StateId",
                 table: "Item",
                 column: "StateId");
@@ -227,16 +213,16 @@ namespace Inventory.Min.Data.Migrations
                 name: "Item");
 
             migrationBuilder.DropTable(
-                name: "State");
-
-            migrationBuilder.DropTable(
-                name: "Tag");
-
-            migrationBuilder.DropTable(
                 name: "Category");
 
             migrationBuilder.DropTable(
                 name: "Currency");
+
+            migrationBuilder.DropTable(
+                name: "State");
+
+            migrationBuilder.DropTable(
+                name: "Tag");
 
             migrationBuilder.DropTable(
                 name: "Unit");
