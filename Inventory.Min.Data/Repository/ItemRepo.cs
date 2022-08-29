@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Inventory.Min.Data;
 
 public class ItemRepo<TContext>
-    : EFRepository<Item, TContext>
+    : EFRepositoryAsync<Item, TContext>
     , IItemRepo
     where TContext : DbContext
 {

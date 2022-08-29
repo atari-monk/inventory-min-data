@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Inventory.Min.Data;
 
 public class InventoryUnitOfWork<TContext>
-    : UnitOfWork
+    : UnitOfWorkAsync
         , IInventoryUnitOfWork
     where TContext : DbContext
 {

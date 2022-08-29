@@ -4,7 +4,7 @@ using EFCore.Helper;
 namespace Inventory.Min.Data;
 
 public interface IItemRepo 
-    : IRepository<Item>
+    : IEFRepositoryAsync<Item>
 {
 	IEnumerable<Item> GetItem(
         Expression<Func<Item, bool>>? filter);
