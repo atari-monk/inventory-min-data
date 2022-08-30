@@ -13,4 +13,4 @@ public class SeedAction<TContext, TEntity>
         this.GetDbEntity = getDbEntity;
         this.AddEntity = addEntity; 
     }
-} 
+}
