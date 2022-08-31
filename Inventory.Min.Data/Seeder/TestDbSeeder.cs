@@ -8,6 +8,7 @@ public class TestDbSeeder
         return new Dictionary<string, object>()
         {
             { Category + "1", new Category { Name = "Food" } }
+            , { Category + "2", new Category { Name = "Pasta" } }
             , { Currency + "1", new Currency { Name = "PLN" } }
             , { Unit + "1", new Unit { Name = "cm", Description = "centimeter" } }
             , { Unit + "2", new Unit { Name = "m", Description = "meter" } }
