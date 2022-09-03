@@ -20,4 +20,12 @@ public class AppCommands
         var seeder = new FoodDbSeeder();
         await seeder.Seed();
     }
+
+    [Command("modeldb")]
+    public async Task SeedModelDb()
+    {
+        Console.WriteLine("Seed ModelDb");
+        var seeder = new ModelDbSeeder();
+        await seeder.Seed();
+    }
 }

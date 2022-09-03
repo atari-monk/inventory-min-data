@@ -119,4 +119,11 @@ public abstract class InventorySeeder
             , key
             , GetAction<SeedAction<InventoryDbContext, State>>(State));
     }
+
+    protected string GetKey(string type, int i)
+    {
+        if(i < 1)
+            throw new ArgumentException("i must be equal or greater than 1");
+        return type + i;
+    }
 }
