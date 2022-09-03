@@ -7,17 +7,17 @@ public class ModelDbSeeder
     {
         return new Dictionary<string, object>()
         {
-              { GetKey(Category, 1), new Category { Id = 1, Name = "Stock" } }
-            , { GetKey(Currency, 1), new Currency { Id = 1, Name = "PLN" } }
-            , { GetKey(Unit, 1), new Unit { Id = 1, Name = "cm", Description = "Centimetre" } }
-            , { GetKey(Unit, 2), new Unit { Id = 2, Name = "m", Description = "Metre" } }
-            , { GetKey(Unit, 3), new Unit { Id = 3, Name = "kg", Description = "Kilogram" } }
-            , { GetKey(Unit, 4), new Unit { Id = 4, Name = "l", Description = "Litre" } }
+              { GetKey(Category, 1), new Category { Name = "Stock" } }
+            , { GetKey(Currency, 1), new Currency { Name = "PLN" } }
+            , { GetKey(Unit, 1), new Unit { Name = "cm", Description = "Centimetre" } }
+            , { GetKey(Unit, 2), new Unit { Name = "m", Description = "Metre" } }
+            , { GetKey(Unit, 3), new Unit { Name = "kg", Description = "Kilogram" } }
+            , { GetKey(Unit, 4), new Unit { Name = "l", Description = "Litre" } }
             , { GetKey(Tag, 1), new Tag { Name = "Cabin" } }
-            , { GetKey(State, 1), new State { Id = 1, Name = "Plan" } }
-            , { GetKey(State, 2), new State { Id = 2, Name = "In storage" } }
-            , { GetKey(State, 3), new State { Id = 3, Name = "In use" } }
-            , { GetKey(State, 4), new State { Id = 4, Name = "Depleted" } }
+            , { GetKey(State, 1), new State { Name = "Plan" } }
+            , { GetKey(State, 2), new State { Name = "In storage" } }
+            , { GetKey(State, 3), new State { Name = "In use" } }
+            , { GetKey(State, 4), new State { Name = "Depleted" } }
         };
     }
 
