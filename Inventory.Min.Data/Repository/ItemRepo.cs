@@ -6,8 +6,8 @@ namespace Inventory.Min.Data;
 
 public class ItemRepo<TContext>
     : EFRepositoryAsync<Item, TContext>
-    , IItemRepo
-    where TContext : DbContext
+        , IItemRepo
+            where TContext : DbContext
 {
     public ItemRepo(TContext context)
         : base(context)

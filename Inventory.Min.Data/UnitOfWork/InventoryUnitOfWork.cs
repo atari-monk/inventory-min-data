@@ -9,15 +9,20 @@ public class InventoryUnitOfWork<TContext>
     where TContext : DbContext
 {
     private readonly IItemRepo item;
+    private readonly ICategoryRepo category;
 
     public IItemRepo Item => item;
+    public ICategoryRepo Category => category;
 
     public InventoryUnitOfWork(
         TContext context
-        , IItemRepo item)
+        , IItemRepo item
+        , ICategoryRepo category)
             : base(context)
     {
         this.item = item;
+        this.category = category;
         ArgumentNullException.ThrowIfNull(this.item);
+        ArgumentNullException.ThrowIfNull(this.category);
     }
 }

@@ -6,4 +6,5 @@ public interface IInventoryUnitOfWork
 	: IUnitOfWorkAsync
 {
 	IItemRepo Item { get; }
+    ICategoryRepo Category { get; }
 }
