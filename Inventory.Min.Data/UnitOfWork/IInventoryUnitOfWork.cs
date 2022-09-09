@@ -7,4 +7,5 @@ public interface IInventoryUnitOfWork
 {
 	IItemRepo Item { get; }
     ICategoryRepo Category { get; }
+    ICurrencyRepo Currency { get; }
 }
