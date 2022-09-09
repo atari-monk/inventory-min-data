@@ -9,4 +9,6 @@ public interface IInventoryUnitOfWork
     ICategoryRepo Category { get; }
     ICurrencyRepo Currency { get; }
     IStateRepo State { get; }
+    ITagRepo Tag { get; }
+    IUnitRepo Unit { get; }
 }
