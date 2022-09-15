@@ -25,6 +25,9 @@
 	</ItemGroup>
 	<!--Debug refs-->
 	<!-- <ItemGroup>
+        <Reference Include="EFCore.Helper">
+			<HintPath>..\..\efcore-helper\EFCore.Helper\bin\Debug\net6.0\EFCore.Helper.dll</HintPath>
+		</Reference>
 		<Reference Include="DIHelper">
 			<HintPath>..\..\di-helper\DIHelper\bin\Debug\net6.0\DIHelper.dll</HintPath>
 		</Reference>
@@ -43,6 +46,9 @@
 	</ItemGroup> -->
 	<!--Release refs-->
 	<ItemGroup>
+        <Reference Include="EFCore.Helper">
+			<HintPath>..\..\..\Build\efcore-helper\EFCore.Helper\EFCore.Helper.dll</HintPath>
+		</Reference>
 		<Reference Include="DIHelper">
 			<HintPath>..\..\..\Build\di-helper\DIHelper\DIHelper.dll</HintPath>
 		</Reference>

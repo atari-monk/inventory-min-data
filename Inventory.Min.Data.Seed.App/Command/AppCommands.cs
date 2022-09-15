@@ -28,4 +28,12 @@ public class AppCommands
         var seeder = new ModelDbSeeder();
         await seeder.Seed();
     }
+
+    [Command("stuffdb")]
+    public async Task SeedStuffDb()
+    {
+        Console.WriteLine("Seed StuffDb");
+        var seeder = new StuffDbSeeder();
+        await seeder.Seed();
+    }
 }

@@ -1,4 +1,4 @@
-namespace Inventory.Min.Data;
+namespace Inventory.Min.Data.Seed.App;
 
 public class SeedAction<TContext, TEntity>
 {
