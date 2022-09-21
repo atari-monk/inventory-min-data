@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using EFCore.Helper;
 
 namespace Inventory.Min.Data;
@@ -6,6 +5,7 @@ namespace Inventory.Min.Data;
 public interface IItemRepo 
     : IEFRepositoryAsync<Item>
 {
-	IEnumerable<Item> GetItem(
-        Expression<Func<Item, bool>>? filter);
+	Task<IEnumerable<Item>> GetItemsAsync();
+	Task<IEnumerable<Item>> GetItemsAsync(QueryData queryData);
+    Task<IEnumerable<Item>> GetItemsAsync(int categoryId);
 }
