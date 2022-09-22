@@ -42,10 +42,36 @@ public class ItemRepo<TContext>
             , queryData.IncludeProperties);
     }
 
-    public async Task<IEnumerable<Item>> GetItemsAsync(int categoryId)
+    public async Task<IEnumerable<Item>> GetItemsInOneCategoryAsync(int categoryId)
     {
         var queryData = new QueryData(
             (item) => item.CategoryId == categoryId
+            , defaultOrderBy
+            , defaultInclude);
+        return await GetAsync(
+            queryData.Filter
+            , queryData.OrderBy
+            , queryData.IncludeProperties);
+    }
+    
+    public async Task<IEnumerable<Item>> GetItemsExcludingOneStateAsync(int stateId)
+    {
+          var queryData = new QueryData(
+            (item) => item.StateId != stateId
+            , defaultOrderBy
+            , defaultInclude);
+        return await GetAsync(
+            queryData.Filter
+            , queryData.OrderBy
+            , queryData.IncludeProperties);
+    }
+
+    public async Task<IEnumerable<Item>> GetRelatedItemsExcludingOneStateAsync(int parentId, int stateId)
+    {
+          var queryData = new QueryData(
+            (item) => 
+                (item.Id == parentId || item.ParentId == parentId)
+                && item.StateId != stateId
             , defaultOrderBy
             , defaultInclude);
         return await GetAsync(
