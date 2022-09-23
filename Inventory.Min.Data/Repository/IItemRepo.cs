@@ -10,4 +10,5 @@ public interface IItemRepo
     Task<IEnumerable<Item>> GetItemsInOneCategoryAsync(int categoryId);
     Task<IEnumerable<Item>> GetItemsExcludingOneStateAsync(int stateId);
     Task<IEnumerable<Item>> GetRelatedItemsExcludingOneStateAsync(int parentId, int stateId);
+    Task<IEnumerable<Item>> GetRootItemsOfOneCategory(int categoryId);
 }

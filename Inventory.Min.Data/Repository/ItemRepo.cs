@@ -79,4 +79,18 @@ public class ItemRepo<TContext>
             , queryData.OrderBy
             , queryData.IncludeProperties);
     }
+
+    public async Task<IEnumerable<Item>> GetRootItemsOfOneCategory(int categoryId)
+    {
+          var queryData = new QueryData(
+            (item) => 
+                item.ParentId == null
+                && item.CategoryId == categoryId
+            , defaultOrderBy
+            , defaultInclude);
+        return await GetAsync(
+            queryData.Filter
+            , queryData.OrderBy
+            , queryData.IncludeProperties);
+    }
 }
