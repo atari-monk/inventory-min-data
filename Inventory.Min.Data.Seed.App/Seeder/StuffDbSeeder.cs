@@ -9,6 +9,8 @@ public class StuffDbSeeder
         {
               { GetKey(Category, 1), new Category { Name = "Computer" } }
             , { GetKey(Category, 2), new Category { Name = "Electronics" } }
+            , { GetKey(Category, 3), new Category { Name = "Container" } }
+            , { GetKey(Category, 4), new Category { Name = "Old Pc component" } }
             , { GetKey(Currency, 1), new Currency { Name = "PLN" } }
             , { GetKey(Unit, 1), new Unit { Name = "cm", Description = "Centimetre" } }
             , { GetKey(Unit, 2), new Unit { Name = "m", Description = "Metre" } }
@@ -26,11 +28,11 @@ public class StuffDbSeeder
     {
         try
         {
-            Enumerable.Range(1, 2).ToList().ForEach(i => SeedCategory(Category + i));
-            Enumerable.Range(1, 1).ToList().ForEach(i => SeedCurrency(Currency + i));
-            Enumerable.Range(1, 4).ToList().ForEach(i => SeedUnit(Unit + i));
-            Enumerable.Range(1, 1).ToList().ForEach(i => SeedTag(Tag + i));
-            Enumerable.Range(1, 4).ToList().ForEach(i => SeedState(State + i));
+            Enumerable.Range(1, 4).ToList().ForEach(i => SeedCategory(GetKey(Category, i)));
+            Enumerable.Range(1, 1).ToList().ForEach(i => SeedCurrency(GetKey(Currency, i)));
+            Enumerable.Range(1, 4).ToList().ForEach(i => SeedUnit(GetKey(Unit, i)));
+            Enumerable.Range(1, 1).ToList().ForEach(i => SeedTag(GetKey(Tag, i)));
+            Enumerable.Range(1, 4).ToList().ForEach(i => SeedState(GetKey(State, i)));
             await Context.SaveChangesAsync();
         }
         finally
