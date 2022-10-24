@@ -36,4 +36,12 @@ public class AppCommands
         var seeder = new StuffDbSeeder();
         await seeder.Seed();
     }
+
+    [Command("inventorydb")]
+    public async Task SeedInventoryDb()
+    {
+        Console.WriteLine("Seed InventoryDb");
+        var seeder = new InventoryDbSeeder();
+        await seeder.Seed();
+    }
 }
