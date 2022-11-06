@@ -5,7 +5,8 @@ namespace Inventory.Min.Data;
 public interface IInventoryUnitOfWork 
 	: IUnitOfWorkAsync
 {
-	IItemRepo Item { get; }
+	IItemRepo ItemSync { get; }
+	IItemRepoAsync Item { get; }
     ICategoryRepo Category { get; }
     ICurrencyRepo Currency { get; }
     IStateRepo State { get; }

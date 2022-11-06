@@ -8,14 +8,16 @@ public class InventoryUnitOfWork<TContext>
         , IInventoryUnitOfWork
     where TContext : DbContext
 {
-    private readonly IItemRepo item;
+    private readonly IItemRepo itemSync;
+    private readonly IItemRepoAsync item;
     private readonly ICategoryRepo category;
     private readonly ICurrencyRepo currency;
     private readonly IStateRepo state;
     private readonly ITagRepo tag;
     private readonly IUnitRepo unit;
 
-    public IItemRepo Item => item;
+    public IItemRepo ItemSync => itemSync;
+    public IItemRepoAsync Item => item;
     public ICategoryRepo Category => category;
     public ICurrencyRepo Currency => currency;
     public IStateRepo State => state;
@@ -24,7 +26,8 @@ public class InventoryUnitOfWork<TContext>
 
     public InventoryUnitOfWork(
         TContext context
-        , IItemRepo item
+        , IItemRepo itemSync
+        , IItemRepoAsync item
         , ICategoryRepo category
         , ICurrencyRepo currency
         , IStateRepo state
@@ -32,12 +35,14 @@ public class InventoryUnitOfWork<TContext>
         , IUnitRepo unit)
             : base(context)
     {
+        this.itemSync = itemSync;
         this.item = item;
         this.category = category;
         this.currency = currency;
         this.state = state;
         this.tag = tag;
         this.unit = unit;
+        ArgumentNullException.ThrowIfNull(this.itemSync);
         ArgumentNullException.ThrowIfNull(this.item);
         ArgumentNullException.ThrowIfNull(this.category);
         ArgumentNullException.ThrowIfNull(this.currency);
