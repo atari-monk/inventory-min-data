@@ -1,6 +1,6 @@
 namespace Inventory.Min.Data.Seed.App;
 
-public abstract class InventorySeeder
+public abstract class DbSeeder
 {
     protected const string Category = nameof(Item.Category);
     protected const string Currency = nameof(Item.Currency);
@@ -11,7 +11,7 @@ public abstract class InventorySeeder
     private readonly Dictionary<string, object> data;
     private readonly Dictionary<string, object> actions;
 
-    public InventorySeeder()
+    public DbSeeder()
     {
         Context = new InventoryDbContext();
         data = CreateData();

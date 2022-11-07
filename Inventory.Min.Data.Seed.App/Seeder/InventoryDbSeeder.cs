@@ -1,16 +1,14 @@
 namespace Inventory.Min.Data.Seed.App;
 
-public class FoodDbSeeder
-    : InventorySeeder
+public class InventoryDbSeeder
+    : DbSeeder
 {
     protected override Dictionary<string, object> CreateData()
     {
         return new Dictionary<string, object>()
         {
-              { Category + "1", new Category { Name = "Food" } }
-            , { Category + "2", new Category { Name = "Furniture" } }
-            , { Category + "3", new Category { Name = "Pasta" } }
-            , { Category + "4", new Category { Name = "Container" } }
+              { Category + "1", new Category { Name = "Container" } }
+            , { Category + "2", new Category { Name = "Food" } }
             , { Currency + "1", new Currency { Name = "PLN" } }
             , { Currency + "2", new Currency { Name = "EUR" } }
             , { Currency + "3", new Currency { Name = "USD" } }
@@ -31,8 +29,6 @@ public class FoodDbSeeder
         {
             SeedCategory(Category + "1");
             SeedCategory(Category + "2");
-            SeedCategory(Category + "3");
-            SeedCategory(Category + "4");
             SeedCurrency(Currency + "1");
             SeedCurrency(Currency + "2");
             SeedCurrency(Currency + "3");
